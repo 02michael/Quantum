@@ -216,3 +216,102 @@ canvas {
     position: relative;
     z-index: 2;
 }
+.density-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(255,255,255,0.3) var(--val, 100%), rgba(255,255,255,0.05) var(--val, 100%));
+    border-radius: 3px;
+}
+.density-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255,255,255,1);
+}
+#control-buttons {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    z-index: 20;
+    padding: 8px;
+    background: rgba(0,0,0,0.1);
+}
+.control-button {
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--text-main);
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3),
+        inset 0 0 10px rgba(255,255,255,0.02);
+    overflow: hidden;
+    position: relative;
+    min-width: 100px;
+    text-align: center;
+}
+.control-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-4px);
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+.control-button:active {
+    transform: translateY(-1px);
+}
+.control-button span {
+    position: relative;
+    z-index: 2;
+}
+@media (max-width: 640px) {
+    #instructions-container {
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        padding: 16px;
+        background: rgba(10, 10, 15, 0.6);
+    }
+    #theme-selector {
+        top: auto;
+        bottom: 100px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        padding: 16px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .theme-grid {
+        margin-top: 0;
+    }
+    #control-buttons {
+        bottom: 24px;
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 16px;
+    }
+    .control-button {
+        padding: 10px 16px;
+        min-width: auto;
+        font-size: 11px;
+        flex: 1;
+    }
+}
